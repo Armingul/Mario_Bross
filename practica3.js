@@ -283,7 +283,29 @@ var game = function () {
                     }
                 });
             }
-        })
+        });
+
+        Q.compileSheets("princess.png");
+        Q.Sprite.extend("Princess", {
+            init: function (p) {
+                this._super(p, {
+                    asset: "princess.png",
+                    x: 3600,
+                    y: 528,
+                    win: false
+                });
+                this.add('2d');
+                this.on("bump.left,bump.right,bump.bottom,bump.top", function (collision) {
+                    if (collision.obj.isA("Player") && !collision.obj.p.dead && !this.p.win) {
+                        this.p.win = true;
+                        Q.stageScene("winGame", 1, {
+                            label: "You just got friendzoned <3"
+                        });
+                    }
+                });
+            },
+            step: function (dt) { }
+        });
 
         Q.scene("endGame", function (stage) {
             Q.audio.stop('music_main.mp3');
@@ -475,29 +497,52 @@ var game = function () {
             }));
             stage.insert(new Q.Princess());
             stage.insert(new Q.Coin({
-                x: 270,
-                y: 450
+                x: 1575,
+                y: 528
             }));
             stage.insert(new Q.Coin({
-                x: 300,
-                y: 450
+                x: 1550,
+                y: 528
             }));
             stage.insert(new Q.Coin({
-                x: 330,
-                y: 450
-            }));
-
-            stage.insert(new Q.Coin({
-                x: 470,
-                y: 450
+                x: 1600,
+                y: 528
             }));
             stage.insert(new Q.Coin({
-                x: 500,
-                y: 450
+                x: 1625,
+                y: 528
             }));
             stage.insert(new Q.Coin({
-                x: 530,
-                y: 450
+                x: 1650,
+                y: 528
+            }));
+            stage.insert(new Q.Coin({
+                x: 1675,
+                y: 528
+            }));
+            stage.insert(new Q.Coin({
+                x: 1700,
+                y: 528
+            }));
+            stage.insert(new Q.Coin({
+                x: 1250,
+                y: 528
+            }));
+            stage.insert(new Q.Coin({
+                x: 150,
+                y: 400
+            }));
+            stage.insert(new Q.Coin({
+                x: 1150,
+                y: 350
+            }));
+            stage.insert(new Q.Coin({
+                x: 1200,
+                y: 350
+            }));
+            stage.insert(new Q.Coin({
+                x: 1250,
+                y: 350
             }));
             
         });
