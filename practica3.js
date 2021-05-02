@@ -18,7 +18,7 @@ var game = function () {
 
 
 
-    Q.load("mario_small.png, mario_small.json, goomba.png, goomba.json, tiles.png, bloopa.json, bloopa.png, princess.png, title-screen.png, coin.png, coin.json, music_main.mp3, music_main.ogg,coin.mp3, coin.ogg,music_die.mp3, music_die.ogg, music_level_complete.mp3, music_level_complete.ogg", function () {
+    Q.load("mario_small.png, mario_small.json, goomba.png, goomba.json, tiles.png, bloopa.json, bloopa.png, princess.png, title-screen.png, coin.png, coin.json, music_main.mp3, music_main.ogg,coin.mp3, coin.ogg,music_die.mp3, music_die.ogg, music_level_complete.mp3, music_level_complete.ogg, squish_enemy.mp3, squish_enemy.ogg", function () {
         // Sprites sheets can be created manually
         Q.sheet("tiles", "tiles.png", {
             tilew: 32,
@@ -127,7 +127,9 @@ var game = function () {
                     }
                 });
                 this.entity.on("bump.top", function (collision) {
+
                     if (collision.obj.isA("Player") && !collision.obj.p.dead) {
+                        Q.audio.play("squish_enemy.mp3");
                         this.play("die");
                         collision.obj.p.vy = -300;
                         this.p.vx = 0;
