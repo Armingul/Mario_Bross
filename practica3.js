@@ -18,7 +18,7 @@ var game = function () {
 
 
 
-    Q.load("mario_small.png, mario_small.json, goomba.png, goomba.json, tiles.png, bloopa.json, bloopa.png, princess.png, title-screen.png, musica.mp3, musica.ogg ,coin.png, coin.json, music_main.mp3, music_main.ogg,coin.mp3, coin.ogg,music_die.mp3, music_die.ogg, music_level_complete.mp3, music_level_complete.ogg, squish_enemy.mp3, squish_enemy.ogg, pedo.ogg, pedo.mp3", function () {
+    Q.load("mario_small.png, mario_small.json, goomba.png, goomba.json, tiles.png, bloopa.json, bloopa.png, victoria.mp3, victoria.ogg, princess.png, title-screen.png, muerte.mp3, muerte.ogg, musica.mp3, musica.ogg ,coin.png, coin.json, music_main.mp3, music_main.ogg, dinero.mp3, dinero.ogg, music_die.mp3, music_die.ogg, music_level_complete.mp3, music_level_complete.ogg, squish_enemy.mp3, squish_enemy.ogg, pedo.ogg, pedo.mp3", function () {
         // Sprites sheets can be created manually
         Q.sheet("tiles", "tiles.png", {
             tilew: 32,
@@ -270,7 +270,7 @@ var game = function () {
                         if (!this.p.hit) {
                             this.play("taken")
                             this.p.hit = true;
-                            Q.audio.play('coin.mp3');
+                            Q.audio.play('dinero.mp3');
                             this.animate({
                                 x: this.p.x,
                                 y: this.p.y - 100
@@ -312,7 +312,7 @@ var game = function () {
 
         Q.scene("endGame", function (stage) {
             Q.audio.stop('musica.mp3');
-            Q.audio.play('music_die.mp3');
+            Q.audio.play('muerte.mp3');
 
             var container = stage.insert(new Q.UI.Container({
                 x: Q.width / 2,
@@ -358,7 +358,7 @@ var game = function () {
 
         Q.scene("winGame", function (stage) {
             Q.audio.stop('musica.mp3');
-            Q.audio.play('music_level_complete.mp3');
+            Q.audio.play('victoria.mp3');
 
             var container = stage.insert(new Q.UI.Container({
                 x: Q.width / 2,
