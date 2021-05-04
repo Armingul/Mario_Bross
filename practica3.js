@@ -109,7 +109,7 @@ var game = function () {
             }
         });
 
-        Q.component("enemy", {
+        Q.component("defaultEnemy", {
             added: function () {
 
                 this.entity.on("bump.left,bump.right,bump.bottom", function (collision) {
@@ -174,7 +174,7 @@ var game = function () {
                     vx: 40,
                     dead: false
                 });
-                this.add('2d,aiBounce,enemy,animation');
+                this.add('2d,aiBounce,defaultEnemy,animation');
             },
             step: function (dt) {
                 if (this.p.vx > 0 || this.p.vx < 0)
@@ -204,16 +204,16 @@ var game = function () {
             init: function (p) {
                 this._super(p, {
                     sprite: "bloopa_anim",
-                    sheet: "bloopa", // Setting a sprite sheet sets sprite width and height
-                    x: p.x, // You can also set additional properties that can
-                    y: p.y, // be overridden on object creation
+                    sheet: "bloopa", 
+                    x: p.x, 
+                    y: p.y, 
                     vy: -10,
                     move: 'up',
                     dead: false,
                     range: p.range,
                     dest: 0
                 });
-                this.add('2d,aiBounce,enemy,animation');
+                this.add('2d,aiBounce,defaultEnemy,animation');
             },
             step: function (dt) {
                 if (this.p.move == 'up') {
@@ -264,7 +264,7 @@ var game = function () {
                     frame: 0,
                     hit: false
                 });
-                this.add('2d, animation, tween');
+                this.add('2d, animation, aiBounce, tween');
                 this.on("bump.left,bump.right,bump.bottom,bump.top", function (collision) {
                     if (collision.obj.isA("Player") && !collision.obj.p.dead) {
                         if (!this.p.hit) {
@@ -292,8 +292,8 @@ var game = function () {
             init: function (p) {
                 this._super(p, {
                     asset: "princess.png",
-                    x: 3600,
-                    y: 528,
+                    x: 3640,
+                    y: 508,
                     win: false
                 });
                 this.add('2d');
@@ -469,84 +469,9 @@ var game = function () {
             stage.add("viewport").follow(player, {
                 x: true,
                 y: false
-            });
-        
-            stage.insert(new Q.Goomba({
-                x: 270,
-                y: 528
-            }));
-            stage.insert(new Q.Goomba({
-                x: 1100,
-                y: 528
-            }));
-            stage.insert(new Q.Goomba({
-                x: 1200,
-                y: 528
-            }));
-            stage.insert(new Q.Goomba({
-                x: 2000,
-                y: 528
-            }));
-            stage.insert(new Q.Bloopa({
-                x: 250,
-                y: 500,
-                range: 150
-            }));
-            stage.insert(new Q.Bloopa({
-                x: 2200,
-                y: 1000,
-                range: 160
-            }));
+            }); 
             stage.insert(new Q.Princess());
-            stage.insert(new Q.Coin({
-                x: 1575,
-                y: 528
-            }));
-            stage.insert(new Q.Coin({
-                x: 1550,
-                y: 528
-            }));
-            stage.insert(new Q.Coin({
-                x: 1600,
-                y: 528
-            }));
-            stage.insert(new Q.Coin({
-                x: 1625,
-                y: 528
-            }));
-            stage.insert(new Q.Coin({
-                x: 1650,
-                y: 528
-            }));
-            stage.insert(new Q.Coin({
-                x: 1675,
-                y: 528
-            }));
-            stage.insert(new Q.Coin({
-                x: 1700,
-                y: 528
-            }));
-            stage.insert(new Q.Coin({
-                x: 1250,
-                y: 528
-            }));
-            stage.insert(new Q.Coin({
-                x: 150,
-                y: 400
-            }));
-            stage.insert(new Q.Coin({
-                x: 1150,
-                y: 350
-            }));
-            stage.insert(new Q.Coin({
-                x: 1200,
-                y: 350
-            }));
-            stage.insert(new Q.Coin({
-                x: 1250,
-                y: 350
-            }));
-            
+        
         });
 
         
