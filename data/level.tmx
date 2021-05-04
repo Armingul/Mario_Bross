@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="120" height="18" tilewidth="34" tileheight="34" infinite="0" nextlayerid="8" nextobjectid="136">
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="120" height="18" tilewidth="34" tileheight="34" infinite="0" nextlayerid="8" nextobjectid="139">
  <tileset firstgid="1" name="tiles" tilewidth="34" tileheight="34" tilecount="49" columns="7">
   <image source="../images/tiles.png" width="256" height="256"/>
   <tile id="34">
@@ -4403,8 +4403,6 @@
   <object id="71" gid="35" x="3261.67" y="299.667" width="34" height="34"/>
   <object id="72" gid="35" x="3287" y="367.667" width="34" height="34"/>
   <object id="73" gid="35" x="3296.33" y="433" width="34" height="34"/>
-  <object id="74" gid="50" x="3876" y="543.667" width="32" height="34"/>
-  <object id="75" gid="50" x="3780" y="543.667" width="32" height="34"/>
   <object id="98" gid="58" x="427" y="531" width="32" height="34"/>
   <object id="99" gid="58" x="528" y="491" width="32" height="34"/>
   <object id="100" gid="58" x="633" y="508" width="32" height="34"/>
@@ -4430,5 +4428,7 @@
   <object id="133" gid="58" x="3103" y="113" width="32" height="34"/>
   <object id="134" gid="58" x="3376" y="360" width="32" height="34"/>
   <object id="135" gid="58" x="3455" y="357" width="32" height="34"/>
+  <object id="137" gid="50" x="204" y="543" width="32" height="34"/>
+  <object id="138" gid="50" x="169" y="545" width="32" height="34"/>
  </objectgroup>
 </map>
